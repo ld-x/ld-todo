@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import { EditorBlock } from 'draft-js'
+import { EditorBlock, EditorState } from 'draft-js'
 import styled from 'styled-components'
 
 const updateDataOfBlock = (editorState, block, newData) => {
@@ -38,8 +38,8 @@ export default class extends React.Component {
     const checked = data.get('checked') === true
     return (
       <TodoWrapper data-plugin-type='todo'>
-        <TodoInput type='checkbox' checked={checked} onChange={this.updateData} />
-        <TodoBlock>
+        <TodoInput type='checkbox' checked={checked} onClick={this.updateData} />
+        <TodoBlock checked={checked} >
           <EditorBlock {...this.props} />
         </TodoBlock>
       </TodoWrapper>
@@ -50,18 +50,47 @@ export default class extends React.Component {
 const TodoWrapper = styled.div`
   position: relative;
   padding: 10px 20px;
-  border: 1px solid #f7f7f7;
   margin-bottom: 10px;
   border-radius: 4px;
 `
 
 const TodoBlock = styled.div`
-  margin-left: 10px;
+  margin-left: 15px;
+  border-bottom: 1px solid black;
+  text-decoration: ${props => props.checked ? 'line-through' : 'initial'};
 `
 
-const TodoInput = styled.input`
+const TodoInput = styled.span`
   position: absolute;
-  top: 10px;
-  left: 10px;
+  left: 0;
+  top: 20px;
   cursor: pointer;
+
+  &:before {
+    content: '';
+    display: block;
+    border: solid 9px #272727;
+    border-radius: 9px;
+    height: 0;
+    width: 0;
+    position: absolute;
+    left: 7px;
+    top: 40%;
+    margin-top: -8px;
+  }
+
+  &:after {
+    content: '';
+    display:block;
+    width: 4px;
+    height: 6px;
+    border: ${props => props.checked ? 'solid #ff4136' : 'solid white'};
+    border-width: 0 2px 2px 0;
+    position:absolute;
+    left: 14px;
+    top: 2px;
+    margin-top: -4px;
+    transform: rotate(45deg);
+  }
+
 `

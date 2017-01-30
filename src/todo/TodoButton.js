@@ -11,7 +11,7 @@ export default class extends Component {
   onClick (e) {
     e.preventDefault()
     const { editorState } = this.props
-    const data = {type: 'todo'}
+    const data = {type: 'todo', checked: false}
     this.props.onChange(insertDataBlock(editorState, data))
   }
 
