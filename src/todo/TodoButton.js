@@ -5,14 +5,14 @@
  */
 
 import React, {Component} from 'react'
-import insertDataBlock from './insertDataBlock'
 
 export default class extends Component {
   onClick (e) {
+    const {onChange, insertDataBlock} = this.props
     e.preventDefault()
     const { editorState } = this.props
     const data = {type: 'todo', checked: false}
-    this.props.onChange(insertDataBlock(editorState, data))
+    onChange(insertDataBlock(editorState, data))
   }
 
   render () {
