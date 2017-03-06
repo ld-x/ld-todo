@@ -38,3 +38,19 @@ export default class ExampleEditor extends Component {
 }
 
 ```
+
+
+## Styles
+
+Last Draft plugins use styled-components 💅 for the base styling.
+
+## Custom Styles with CSS
+
+You can also add custom css to override the base styling with the following class names specified below:
+
+```css
+.ld-todo-wrapper {}
+.ld-todo-input {}
+.ld-todo {}
+.ld-button-todo {}
+```

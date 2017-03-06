@@ -37,9 +37,9 @@ export default class extends React.Component {
     const data = this.props.block.getData()
     const checked = data.get('checked') === true
     return (
-      <TodoWrapper data-plugin-type='todo'>
-        <TodoInput type='checkbox' checked={checked} onClick={this.updateData} />
-        <TodoBlock checked={checked} >
+      <TodoWrapper data-plugin-type='todo' className='ld-todo-wrapper'>
+        <TodoInput className='ld-todo-input' type='checkbox' checked={checked} onClick={this.updateData} />
+        <TodoBlock className='ld-todo' checked={checked} >
           <EditorBlock {...this.props} />
         </TodoBlock>
       </TodoWrapper>
