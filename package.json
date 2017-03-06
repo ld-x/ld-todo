@@ -1,6 +1,6 @@
 {
   "name": "ld-todo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Last Draft todo plugin",
   "main": "lib/todo/plugin.js",
   "scripts": {
