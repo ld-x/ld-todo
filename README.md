@@ -39,7 +39,6 @@ export default class ExampleEditor extends Component {
 
 ```
 
-
 ## Styles
 
 Last Draft plugins use styled-components 💅 for the base styling.
